@@ -1,6 +1,6 @@
 use_bpm 120
 use_synth :piano
-#Main notes that will be needed
+
 melody_note = [
   :c0, :cs0, :d0, :ds0, :e0, :f0, :fs0, :g0, :gs0, :a0, :as0, :b0,
   :c1, :cs1, :d1, :ds1, :e1, :f1, :fs1, :g1, :gs1, :a1, :as1, :b1,
@@ -13,8 +13,9 @@ melody_note = [
   :c8, :cs8, :d8, :ds8, :e8, :f8, :fs8, :g8, :gs8, :a8, :as8, :b8
 ]
 
+
 live_loop :piano do
-#first part 
+  #first part
   2.times do
     play :c3,sustain: 2, release: 5, amp: 0.5
     sleep 0.5
@@ -38,85 +39,98 @@ live_loop :piano do
     sleep 1
   end
   
- #second part 
-  play :c3,sustain: 2, release: 5, amp: 0.5
+  
+  play :c3, sustain: 2, release: 5, amp: 0.5
   sleep 0.5
-  play :b3,sustain: 2, release: 5, amp: 0.5
+  play :b3, sustain: 2, release: 5, amp: 0.5
   sleep 0.5
-  play :e4,sustain: 2, release: 5, amp: 0.5
+  play :e4, sustain: 2, release: 5, amp: 0.5
   sleep 0.5
-  play :e3,sustain: 2, release: 5, amp: 0.5
+  play :e3, sustain: 2, release: 5, amp: 0.5
   sleep 1
-  play :b3,sustain: 2, release: 5, amp: 0.5
+  play :b3, sustain: 2, release: 5, amp: 0.5
   sleep 1
-  play :e3,sustain: 2, release: 5, amp: 0.5
+  play :e3, sustain: 2, release: 5, amp: 0.5
   sleep 1
-  play :g3,sustain: 3, release: 5, amp: 0.5
+  play :g3, sustain: 3, release: 5, amp: 0.5
   sleep 0.56
-
+  
+  cue :start_second_loop
+  
   #third part
   play :c4, sustain: 5, release: 7, amp: 0.5
-  sleep 0.5
-  play :b3, sustain: 5, release: 7, amp: 1
+  sleep 0.56
+  play :b3, sustain: 5, release: 7, amp: 0.8
   sleep 0.6
-  play :a3, sustain: 2, release: 4, amp: 1
-  sleep 0.7
-  play :b3, sustain: 3, release: 4, amp: 1
-  sleep 0.9
-  play :e3, sustain: 2, release: 2, amp: 1
-  sleep 0.8
-  play :g3, sustain: 5, release: 4, amp: 1
-  sleep 1.7
-  play :b3, sustain: 2, release: 4, amp: 1
-  sleep 1
-  play :fs3, sustain: 2, release: 1, amp: 1
-  sleep 0.5
-  play :g3, sustain: 2, release: 1, amp: 1
-  sleep 0.8
-  play :b3, sustain: 2, release: 2, amp: 1
-  sleep 0.8
-  play :e3, sustain: 6, release: 7, amp: 1
-  sleep 2
-  play :d4, sustain: 6, release: 7, amp: 1
-  sleep 0.6
-  play :b3, sustain: 2, release: 4, amp: 1
-  sleep 0.6
-  play :fs3, sustain: 4, release: 7, amp: 1
-  sleep 1
-  play :e3, sustain: 10, release: 11, amp: 1
-  sleep 1
-end
-sleep 25
-
-#still working on it 
-#this is the the same as the first part but it's supposed to play during the third part and continue the second part but the problem im having is that it doesn't sound right and it still wont line up with the end of the second part
-
-2.times do
-  play :c5
-  sleep 0.5
-  play :b4
-  sleep 1
-  play :g4, sustain: 2, release: 2
-  sleep 1
-  play :c4
-  sleep 0.5
-  play :b4
-  sleep 0.5
-  play :e5
-  sleep 0.5
-  play :e4
-  sleep 1
-  play :b4
-  sleep 1
-  play :e4
-  sleep 1
-  play :g4
-  sleep 0.5
-  play :c5
-  sleep 0.5
-  play :b4
-  sleep 1
-  play :g4, sustain: 2, release: 2
-  sleep 1
+  with_fx :reverb, mix: 0.4, room: 1 do
+    with_fx :echo, phase: 0.2, decay: 2 do
+      play :a3, sustain: 2, release: 4, amp: 0.7
+      sleep 0.7
+      play :b4, sustain: 3, release: 4, amp: 0.7
+      sleep 0.9
+      play :e4, sustain: 2, release: 2, amp: 0.7
+      sleep 0.8
+      play :g4, sustain: 5, release: 4, amp: 0.7
+      sleep 1.7
+      play :b4, sustain: 2, release: 4, amp: 0.7
+      sleep 1
+      play :fs4, sustain: 2, release: 1, amp: 0.7
+      sleep 0.5
+      play :g4, sustain: 2, release: 1, amp: 0.7
+      sleep 0.8
+      play :b4, sustain: 2, release: 2, amp: 0.7
+      sleep 0.8
+      play :e4, sustain: 6, release: 7, amp: 0.7
+      sleep 2
+      play :d5, sustain: 6, release: 7, amp: 0.7
+      sleep 0.6
+      play :b4, sustain: 2, release: 4, amp: 0.7
+      sleep 0.6
+      play :fs4, sustain: 4, release: 7, amp: 0.7
+      sleep 1
+      play :e4, sustain: 10, release: 15, amp: 0.7
+      sleep 1
+    end
+  end
   
+  live_loop :second do
+    sync :start_second_loop
+    
+    play :c4, sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :b3, sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :g3, sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :c3, sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :b3, sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :e4, sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :e3, sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :b3, sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :e3, sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :g3, sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :c4, sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :b3, sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :g3, sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :c3,sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :b3,sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :e4,sustain: 2, release: 5, amp: 0.5
+    sleep 0.5
+    play :e3,sustain: 2, release: 5, amp: 0.5
+    sleep 1
+    play :b3,sustain: 2, release: 5, amp: 0.5
+    
+  end
 end
