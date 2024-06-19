@@ -1,4 +1,4 @@
-use_bpm 120
+use_bpm 110
 use_synth :piano
 
 melody_note = [
@@ -15,122 +15,121 @@ melody_note = [
 
 
 live_loop :piano do
-  #first part
-  2.times do
-    play :c3,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :b3,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :e4,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :e3,sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :b3,sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :e3,sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :g3,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :c4,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :b3,sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :g3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-  end
-  
-  
-  play :c3, sustain: 2, release: 5, amp: 0.5
-  sleep 0.5
-  play :b3, sustain: 2, release: 5, amp: 0.5
-  sleep 0.5
-  play :e4, sustain: 2, release: 5, amp: 0.5
-  sleep 0.5
-  play :e3, sustain: 2, release: 5, amp: 0.5
-  sleep 1
-  play :b3, sustain: 2, release: 5, amp: 0.5
-  sleep 1
-  play :e3, sustain: 2, release: 5, amp: 0.5
-  sleep 1
-  play :g3, sustain: 3, release: 5, amp: 0.5
-  sleep 0.56
-  
-  cue :start_second_loop
-  
-  #third part
-  play :c4, sustain: 5, release: 7, amp: 0.5
-  sleep 0.56
-  play :b3, sustain: 5, release: 7, amp: 0.8
-  sleep 0.6
-  with_fx :reverb, mix: 0.4, room: 1 do
-    with_fx :echo, phase: 0.2, decay: 2 do
-      play :a3, sustain: 2, release: 4, amp: 0.7
-      sleep 0.7
-      play :b4, sustain: 3, release: 4, amp: 0.7
-      sleep 0.9
-      play :e4, sustain: 2, release: 2, amp: 0.7
-      sleep 0.8
-      play :g4, sustain: 5, release: 4, amp: 0.7
-      sleep 1.7
-      play :b4, sustain: 2, release: 4, amp: 0.7
-      sleep 1
-      play :fs4, sustain: 2, release: 1, amp: 0.7
+  #1st part
+  with_fx :echo, phase: 0.08, decay: 1 do
+    
+    2.times do
+      play :c3,sustain: 8, release: 7, amp: 0.8
       sleep 0.5
-      play :g4, sustain: 2, release: 1, amp: 0.7
-      sleep 0.8
-      play :b4, sustain: 2, release: 2, amp: 0.7
-      sleep 0.8
-      play :e4, sustain: 6, release: 7, amp: 0.7
-      sleep 2
-      play :d5, sustain: 6, release: 7, amp: 0.7
-      sleep 0.6
-      play :b4, sustain: 2, release: 4, amp: 0.7
-      sleep 0.6
-      play :fs4, sustain: 4, release: 7, amp: 0.7
+      play :b3,sustain: 8, release: 7, amp: 0.8
+      sleep 0.5
+      play :e4,sustain: 8, release: 7, amp: 0.8
+      sleep 0.5
+      play :e3,sustain: 8, release: 7, amp: 0.8
       sleep 1
-      play :e4, sustain: 10, release: 15, amp: 0.7
+      play :b3,sustain: 8, release: 7, amp: 0.8
+      sleep 1
+      play :e3,sustain: 8, release: 7, amp: 0.8
+      sleep 1
+      play :g3,sustain: 8, release: 7, amp: 0.8
+      sleep 0.5
+      play :c4,sustain: 8, release: 7, amp: 0.8
+      sleep 0.5
+      play :b3,sustain: 8, release: 7, amp: 0.8
+      sleep 1
+      play :g3,sustain: 8, release: 7, amp: 0.8
       sleep 1
     end
+    
+    #2nd part
+    play :c3,sustain: 4, release: 7, amp: 0.8
+    sleep 0.5
+    play :b3,sustain: 4, release: 7, amp: 0.8
+    sleep 0.5
+    play :e4,sustain: 4, release: 7, amp: 0.8
+    sleep 0.5
+    play :e3,sustain: 4, release: 7, amp: 0.8
+    sleep 1
+    play :b3,sustain: 4, release: 7, amp: 0.8
+    sleep 1
+    play :e3,sustain: 4, release: 7, amp: 0.8
+    sleep 1
+    play :g3,sustain: 4, release: 7, amp: 0.8
+    sleep 0.56
+    
+    #3rd part
+    play :c4,sustain: 5, release: 7, amp: 0.8
+    sleep 0.56
+    play :b3,sustain: 5, release: 7, amp: 0.8
+    sleep 0.6
+  end
+  cue :start_second_loop
+  with_fx :echo, phase: 0.06, decay: 1 do
+    
+    play :a3,sustain: 8, release: 7, amp: 0.7
+    sleep 0.7
+    play :b4,sustain: 8, release: 7, amp: 0.7
+    sleep 0.9
+    play :e4,sustain: 8, release: 7, amp: 0.7
+    sleep 0.8
+    play :g4,sustain: 8, release: 7, amp: 0.7
+    sleep 1.7
+    play :b4,sustain: 7, release: 6, amp: 0.7
+    sleep 1
+    play :fs4,sustain: 6, release: 10, amp: 0.7
+    sleep 0.5
+    play :g4,sustain: 6, release: 4, amp: 0.7
+    sleep 0.8
+    play :b4,sustain: 6, release: 5, amp: 0.7
+    sleep 0.8
+    play :e4,sustain: 12, release: 10, amp: 0.7
+    sleep 2
+    play :d5,sustain: 12, release: 10, amp: 0.7
+    sleep 0.6
+    play :b4,sustain: 8, release: 7, amp: 0.7
+    sleep 0.6
+    play :fs4,sustain: 6, release: 10, amp: 0.7
+    sleep 1
+    play :e4,sustain: 19, release: 18, amp: 0.7
+    sleep 1
   end
   
-  live_loop :second do
-    sync :start_second_loop
-    
-    play :c4, sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :b3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :g3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :c3, sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :b3, sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :e4, sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :e3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :b3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :e3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :g3, sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :c4, sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :b3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :g3, sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :c3,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :b3,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :e4,sustain: 2, release: 5, amp: 0.5
-    sleep 0.5
-    play :e3,sustain: 2, release: 5, amp: 0.5
-    sleep 1
-    play :b3,sustain: 2, release: 5, amp: 0.5
-    
+  
+  with_fx :echo, phase: 0.08, decay: 1 do
+    live_loop :second do
+      sync :start_second_loop
+      play :g3,sustain: 2, release: 7, amp: 0.7
+      sleep 1
+      play :c3,sustain: 2, release: 7, amp: 0.7
+      sleep 0.5
+      play :b3,sustain: 2, release: 7, amp: 0.7
+      sleep 0.5
+      play :e4,sustain: 2, release: 7, amp: 0.7
+      sleep 0.5
+      play :e3,sustain: 2, release: 7, amp: 0.7
+      sleep 1
+      play :b3,sustain: 2, release: 7, amp: 0.7
+      sleep 1
+      play :e3,sustain: 2, release: 7, amp: 0.7
+      sleep 1
+      play :g3,sustain: 2, release: 7, amp: 0.7
+      sleep 0.5
+      play :c4,sustain: 2, release: 7, amp: 0.7
+      sleep 0.5
+      play :b3,sustain: 2, release: 7, amp: 0.7
+      sleep 1
+      play :g3,sustain: 2, release: 7, amp: 0.7
+      sleep 1
+      play :c3,sustain: 4, release: 7, amp: 0.7
+      sleep 0.5
+      play :b3,sustain: 4, release: 7, amp: 0.7
+      sleep 0.5
+      play :e4,sustain: 4, release: 7, amp: 0.7
+      sleep 0.5
+      play :e3,sustain: 4, release: 7, amp: 0.7
+      sleep 1
+      play :b3,sustain: 4, release: 7, amp: 0.7
+      sleep 0.5
+    end
   end
 end
